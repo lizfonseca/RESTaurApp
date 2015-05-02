@@ -27,13 +27,16 @@ The application can be accessed via IP address and port:
  #####Restaurants page
  <img src="http://i.imgur.com/4CJCn4B.png">
 
+
  #####Items page
  <img src="http://i.imgur.com/euTKp9R.png">
+
 
  ##Tools & Resources
 
 
  ##Download
+
 
    If you would like to try the application, go to:
 
