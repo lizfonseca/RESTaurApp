@@ -23,6 +23,7 @@ The application can be accessed via IP address and port:
 
  _Port: 3000_
 
+
  #####Restaurants page
  <img src="http://i.imgur.com/4CJCn4B.png">
 
