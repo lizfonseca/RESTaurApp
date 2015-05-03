@@ -1,0 +1,10 @@
+{
+  "name": "RESTaurApp",
+  "version": "0.0.0",
+  "main": "script.js",
+  "author": "Liz Fonseca",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.7.2"
+  }
+}
