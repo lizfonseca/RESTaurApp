@@ -9,53 +9,6 @@ var top = $('.ui.padded.twelve.grid');
 var form = $('script[data-id="form"]').text();
 var table = $('script[data-id="table"]').text();
 
-
-
-// view and edit a restaurant's information
-// need to figure out how to retrieve id's per restaurant
-// container.on('click', '.ui.raised.segment', function(e){
-//   debugger;
-//   var id = $(e.target).parents('.restaurant').attr('id');
-//   $.ajax({
-//     method: 'GET',
-//     // url: '/restaurants/',
-//     url: '/restaurants/' + id,
-//   }).done(function(data){
-//     var renderedForm = Mustache.render(form,{
-//       name: data.name,
-//       location: data.location,
-//       cuisine: data.cuisine,
-//     });
-//     addRest.remove();
-//     container.html('');
-//     container.append(renderedForm);
-//   });
-// });
-
-// // show list of restaurants / main content
-// container.on('click','.ui.mini.black.icon.button', function(){
-//   $.ajax({
-//     method:'GET',
-//     url: '/',
-//   });
-// .done(function(restaurants){
-//       var restEls = [];
-//       restaurants.forEach(function(restaurant){
-//         var html = Mustache.render(template, restaurant);
-//         restEls.push(html);
-//       });
-//       container.append(restEls);
-//   });
-// });
-// show list of restaurants / main content
-
-// var saver = $('.ui.tiny.blue.button');
-// saver.on('click',function(){
-//   console.log('banana');
-// });
-
-
-
 // LOGIC
 function oneMoreRest(){
   $.ajax({
@@ -103,22 +56,29 @@ function getOneRest(id){
     addRest.remove();
     container.html('');
     container.append(renderedForm);
-
+    // updates restaurant current info when clicking blue button
     $('.ui.row').on('click', '.ui.tiny.blue.button', function(){
-      console.log($('h3.ui.header').text());
-      console.log($('span.cuisine').text());
-      console.log($('span.location').text());
+      var restName = $('h3.ui.header').text().trim();
+      var restCuisine = $('span.cuisine').text().trim();
+      var restLocation = $('span.location').text().trim();
+      // variables replacing old info with new info
+      var newInfo ={
+        name: restName,
+        cuisine: restCuisine,
+        location: restLocation
+      };
+      // data replacement happens here
+      $.ajax({
+        method: 'PUT',
+        url: '/restaurants/' + id,
+        data: newInfo
+      }).done(function(){
+        console.log('Job well done!');
+        console.log('Restaurant updated!');
+      });
     });
   });
-}
-
-
-
-
-
-
-
-
+} // end of getOneRest function
 
 
 
