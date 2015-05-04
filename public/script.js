@@ -1,6 +1,5 @@
 console.log('The DOM is ready...');
 
-// img = "http://i.imgur.com/B9rFVPm.jpg?1";
 var addRest = $('#create_rest');
 var template = $('script[data-id="template"]').text();
 var container = $('.ui.twelve.column.centered.stackable.grid');
@@ -20,7 +19,6 @@ function oneMoreRest(){
       image_url: 'http://i.imgur.com/zmjZLb0.jpg?1'
     } // end of ajax req
   }).done(function(data){
-    console.log(data);
     var restaurantsListed = Mustache.render(template, data);
     console.log('new restaurant created!');
     container.append(restaurantsListed);
@@ -80,8 +78,14 @@ function getOneRest(id){
     });
     // deletes current restaurant when clicking red button
     $('.ui.row').on('click', '.ui.tiny.negative.button', function(){
-
-    })
+      $.ajax({
+        method: 'DELETE',
+        url: '/restaurants/' + id,
+      }).done(function(){
+        // hides restaurant form on restaurants view
+        $(document).find('.rest_form').html('');
+      });
+    });
   });
 } // end of getOneRest function
 

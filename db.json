@@ -8,17 +8,17 @@
       "id": 1
     },
     {
-      "name": "name here",
-      "location": "location here",
-      "cuisine": "cuisine here",
-      "image_url": "http://i.imgur.com/zmjZLb0.jpg?1",
+      "name": "Staying Fresh",
+      "location": "New York",
+      "cuisine": "Vegetarian",
+      "image_url": "http://i.imgur.com/B9rFVPm.jpg?1",
       "id": 2
     },
     {
-      "name": "name here",
-      "location": "location here",
-      "cuisine": "cuisine here",
-      "image_url": "http://i.imgur.com/zmjZLb0.jpg?1",
+      "name": "Café Wüf",
+      "location": "Global",
+      "cuisine": "Pet-Friendly",
+      "image_url": "http://i.imgur.com/mmOXAfw.jpg?1",
       "id": 3
     },
     {

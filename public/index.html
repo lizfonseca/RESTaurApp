@@ -29,7 +29,7 @@
     <div class="ui twelve column padded centered stackable grid">
       <!-- custom content starts // restaurant template -->
       <script type="text/template" data-id="template">
-        <div class="ui row">
+        <div class="ui row rest_form">
           <div class="ui ten wide column">
             <div class="ui raised segment restaurant" id="{{id}}">
               <a href="/#/restaurants/{{id}}">
@@ -46,7 +46,7 @@
       </script>
         <!-- restaurant form starts -->
       <script type="text/template" data-id="form">
-        <div class="ui twelve grid">
+        <div class="ui twelve grid rest_form">
           <div class="ui row">
             <div class="ui three wide column">
               <a href="#/restaurants">
@@ -58,7 +58,7 @@
             </div>
           </div>
         </div> 
-        <div data-id="{{id}}" class="ui row">
+        <div data-id="{{id}}" class="ui row rest_form">
           <div class="ui seven wide column">
             <h3 class="ui header" contenteditable='true'>{{name}}</h3>
             <p>
@@ -68,9 +68,11 @@
             </p>
           </div>
           <div class="ui right aligned three wide column row">
-              <div class="ui tiny negative button">
-                Shutdown
-              </div>
+              <a href="#/restaurants">
+                <div class="ui tiny negative button">
+                  Shutdown
+                </div>
+              </a>
               <a data-action="bluebutton">
                 <div class="ui tiny blue button">
                   Save
@@ -80,7 +82,7 @@
         </div>
         <!-- restaurant form ends -->
         <!-- items form starts -->
-        <div class="ui row">
+        <div class="ui row rest_form">
           <div class="ui ten wide column">
             <div class="ui segment">
               <div class="ui form">
