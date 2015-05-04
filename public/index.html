@@ -61,9 +61,13 @@
         <div data-id="{{id}}" class="ui row">
           <div class="ui seven wide column">
             <h3 class="ui header" contenteditable='true'>{{name}}</h3>
-            <span contenteditable='true' class="cuisine">{{cuisine}}</span> / <span contenteditable='true' class="location">{{location}}</span></p>
+            <p>
+              <span contenteditable='true' class="cuisine">{{cuisine}}</span> / 
+              <span contenteditable='true' class="location">{{location}}</span> / 
+              <span contenteditable='true'class="image">{{image_url}}</span>
+            </p>
           </div>
-          <div class="uiright aligned three wide column row">
+          <div class="ui right aligned three wide column row">
               <div class="ui tiny negative button">
                 Shutdown
               </div>
@@ -92,7 +96,7 @@
                   </div>
                   <div class="three wide field">
                     <label>Price:</label>
-                    <div class="ui icon input">
+                    <div class="ui left icon input">
                       <input type="text">
                       <i class="dollar icon"></i>
                     </div>

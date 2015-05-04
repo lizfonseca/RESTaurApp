@@ -4,12 +4,11 @@ console.log('The DOM is ready...');
 var addRest = $('#create_rest');
 var template = $('script[data-id="template"]').text();
 var container = $('.ui.twelve.column.centered.stackable.grid');
-var row = $('.ui.row');
-var top = $('.ui.padded.twelve.grid');
 var form = $('script[data-id="form"]').text();
 var table = $('script[data-id="table"]').text();
 
 // LOGIC
+// adds new restaurant 
 function oneMoreRest(){
   $.ajax({
     method: 'POST',
@@ -28,7 +27,7 @@ function oneMoreRest(){
   }); // end of done
 } //end of moreRest
 
-// shows homepage
+// shows main page
 function letsGoHome(){
   $.ajax({
     method:'GET',
@@ -42,7 +41,7 @@ function letsGoHome(){
       });
       container.append(restEls);
   });
-  // adds new restaurant template into html content
+  // adds new restaurant when clicking green button
   $('.ui.mini.green.button').on('click', oneMoreRest);
 } //end of letsGoHome function
 
@@ -61,11 +60,13 @@ function getOneRest(id){
       var restName = $('h3.ui.header').text().trim();
       var restCuisine = $('span.cuisine').text().trim();
       var restLocation = $('span.location').text().trim();
+      var restImage = $('span.image').text().trim();
       // variables replacing old info with new info
       var newInfo ={
         name: restName,
         cuisine: restCuisine,
-        location: restLocation
+        location: restLocation,
+        image_url: restImage
       };
       // data replacement happens here
       $.ajax({
@@ -77,6 +78,10 @@ function getOneRest(id){
         console.log('Restaurant updated!');
       });
     });
+    // deletes current restaurant when clicking red button
+    $('.ui.row').on('click', '.ui.tiny.negative.button', function(){
+
+    })
   });
 } // end of getOneRest function
 
