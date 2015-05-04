@@ -6,6 +6,27 @@
       "cuisine": "cuisine here",
       "image_url": "http://i.imgur.com/zmjZLb0.jpg?1",
       "id": 1
+    },
+    {
+      "name": "name here",
+      "location": "location here",
+      "cuisine": "cuisine here",
+      "image_url": "http://i.imgur.com/zmjZLb0.jpg?1",
+      "id": 2
+    },
+    {
+      "name": "name here",
+      "location": "location here",
+      "cuisine": "cuisine here",
+      "image_url": "http://i.imgur.com/zmjZLb0.jpg?1",
+      "id": 3
+    },
+    {
+      "name": "name here",
+      "location": "location here",
+      "cuisine": "cuisine here",
+      "image_url": "http://i.imgur.com/zmjZLb0.jpg?1",
+      "id": 4
     }
   ],
   "items": [

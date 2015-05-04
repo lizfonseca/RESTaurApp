@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>RESTauApp</title>
-</head>
-<body>
-  <!-- head starts -->
-  <div class="ui inverted black vertical segment">
-    <div class="ui page grid">
-      <div class="column">
-        <h2 class="ui inverted header">
-          RESTaurant APP
-        </h2>
-        Manage your restaurants on the go
-      </div>
-    </div>
-  </div>
-  <!-- head ends & conent starts  // add new restaurant -->
-  <div class="ui padded twelve grid">
-    <div class="ui row">
-      <div class="ui three wide column">
-        <div class="ui mini green button">
-          Add Restaurant
+  <head>
+    <meta charset="UTF-8">
+    <title>RESTauApp</title>
+  </head>
+  <body>
+    <!-- head starts -->
+    <div class="ui inverted black vertical segment">
+      <div class="ui page grid">
+        <div class="column">
+          <h2 class="ui inverted header">
+            RESTaurant APP
+          </h2>
+          Manage your restaurants on the go
         </div>
       </div>
     </div>
-  </div>  
-  <div class="ui twelve column centered stackable grid">
-    <!-- custom content starts // restaurant template -->
-    <script type="text/template" data-id="template">
+    <!-- head ends & conent starts  // add new restaurant -->
+    <div class="ui padded twelve grid" id="create_rest">
       <div class="ui row">
-        <div class="ui ten wide column">
-          <a href="/restaurants/{{id}}">
-            <div class="ui raised segment">
-              <p><strong>{{name}}</strong>
-                <br>
-                <span>{{cuisine}}</span> / <span>{{location}}</span></p><img class="ui centered image" src={{image_url}}>
+        <div class="ui three wide column">
+          <div class="ui mini green button">
+            Add Restaurant
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="ui twelve column padded centered stackable grid">
+      <!-- custom content starts // restaurant template -->
+      <script type="text/template" data-id="template">
+        <div class="ui row">
+          <div class="ui ten wide column">
+            <!-- <a href="/restaurants/{{id}}"> -->
+              <div class="ui raised segment restaurant" id="{{id}}">
+              <a href="/#/restaurants/{{id}}"><h3>{{name}}</h3></a>
+                <p>
+                  <br>
+                  <span>{{cuisine}}</span> / <span>{{location}}</span>
+                </p>
+                <img class="ui centered image" src={{image_url}}>
               </div>
-            </a>
+            <!-- </a> -->
           </div>
         </div>
       </script>
-      <!-- items form starts -->
+        <!-- restaurant form starts -->
       <script type="text/template" data-id="form">
-        <!-- restaurant info starts -->
-        <div class="ui row">
-          <div class="ui eight wide column">
+        <div class="ui twelve grid">
+          <div class="ui row">
+            <div class="ui three wide column">
+              <a href="#/restaurants">
+                <div class="ui mini black icon button">
+                  <!-- <a data-action = "home" href="#/restaurants"> -->
+                  <i class="angle left icon"></i>
+                  Back
+                  <!-- </a> -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div> 
+        <div data-id="{{id}}" class="ui row">
+          <div class="ui seven wide column">
             <h2 class="ui header" contenteditable='true'>{{name}}</h2>
             <span contenteditable='true'>{{cuisine}}</span> / <span contenteditable='true'>{{location}}</span></p>
           </div>
-          <div class="ui two wide right aligned column">
-            <div class="negative ui tiny button">
-              Shutdown
-            </div>
-          </div>  
+          <div class="uiright aligned three wide column row">
+              <div class="negative ui tiny button">
+                Shutdown
+              </div>
+              <a data-action="bluebutton">
+                <div class="ui tiny blue button">
+                  Save
+                </div>
+              </a> 
+          </div>
         </div>
-        <!-- restaurant info ends -->
+        <!-- restaurant form ends -->
+        <!-- items form starts -->
         <div class="ui row">
           <div class="ui ten wide column">
             <div class="ui segment">
@@ -105,26 +127,27 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
                   {{#itemInfo}}
-                  <td>{{image_url}}</td>
+                <tr data-id="{{restaurant_id}}">
+                  <td><img src="{{image_url}}" class="ui tiny image"></td>
                   <td>{{name}}</td>
                   <td>{{price}}</td>
                   <td>{{order_count}}</td>
-                  {{/itemInfo}}
                 </tr>
+                  {{/itemInfo}}
               </table>
             </div>
           </div>
         </script>
         <!-- items list ends -->
         <!-- custom content ends -->
-      </div>
-      <!-- content ends -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.css">
-      <script type="text/javascript" src="script.js"></script>
-    </body>
-    </html>
+    </div>
+    <!-- content ends -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.css">
+    <script type="text/javascript" src="/script.js"></script>
+  </body>
+</html>

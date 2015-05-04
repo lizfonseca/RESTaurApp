@@ -1,14 +1,63 @@
 console.log('The DOM is ready...');
 
-// julias img = "http://i.imgur.com/B9rFVPm.jpg?1";
-
+// img = "http://i.imgur.com/B9rFVPm.jpg?1";
+var addRest = $('#create_rest');
 var template = $('script[data-id="template"]').text();
 var container = $('.ui.twelve.column.centered.stackable.grid');
+var row = $('.ui.row');
+var top = $('.ui.padded.twelve.grid');
 var form = $('script[data-id="form"]').text();
 var table = $('script[data-id="table"]').text();
 
-// adds new restaurant template into html content
-$('.ui.mini.green.button').on('click', function(){
+
+
+// view and edit a restaurant's information
+// need to figure out how to retrieve id's per restaurant
+// container.on('click', '.ui.raised.segment', function(e){
+//   debugger;
+//   var id = $(e.target).parents('.restaurant').attr('id');
+//   $.ajax({
+//     method: 'GET',
+//     // url: '/restaurants/',
+//     url: '/restaurants/' + id,
+//   }).done(function(data){
+//     var renderedForm = Mustache.render(form,{
+//       name: data.name,
+//       location: data.location,
+//       cuisine: data.cuisine,
+//     });
+//     addRest.remove();
+//     container.html('');
+//     container.append(renderedForm);
+//   });
+// });
+
+// // show list of restaurants / main content
+// container.on('click','.ui.mini.black.icon.button', function(){
+//   $.ajax({
+//     method:'GET',
+//     url: '/',
+//   });
+// .done(function(restaurants){
+//       var restEls = [];
+//       restaurants.forEach(function(restaurant){
+//         var html = Mustache.render(template, restaurant);
+//         restEls.push(html);
+//       });
+//       container.append(restEls);
+//   });
+// });
+// show list of restaurants / main content
+
+// var saver = $('.ui.tiny.blue.button');
+// saver.on('click',function(){
+//   console.log('banana');
+// });
+
+
+
+// logic
+function oneMoreRest(){
   $.ajax({
     method: 'POST',
     url: '/restaurants',
@@ -17,41 +66,67 @@ $('.ui.mini.green.button').on('click', function(){
       location: 'location here',
       cuisine: 'cuisine here',
       image_url: 'http://i.imgur.com/zmjZLb0.jpg?1'
-    }
+    } // end of ajax req
   }).done(function(data){
+    console.log(data);
     var restaurantsListed = Mustache.render(template, data);
-    // console.log(html);
     console.log('new restaurant created!');
     container.append(restaurantsListed);
+  }); // end of done
+} //end of moreRest
+
+// shows homepage
+function letsGoHome(){
+  $.ajax({
+    method:'GET',
+    url: '/restaurants',
+  }).done(function(restaurants){
+      var restEls = [];
+
+      restaurants.forEach(function(restaurant){
+        var html = Mustache.render(template, restaurant);
+        restEls.push(html);
+      });
+      container.append(restEls);
   });
-});
-// view a restaurant's information
-container.on('click', $('.ui.segment'), function(){
+  // adds new restaurant template into html content
+  $('.ui.mini.green.button').on('click', oneMoreRest);
+} //end of letsGoHome function
+
+// view single restaurant
+function getOneRest(id){
   $.ajax({
     method: 'GET',
     url: '/restaurants/' + id,
   }).done(function(data){
-    console.log(data);
-    // var renderedForm = Mustache.render(form,{
-    //   name: name,
-    //   location: location,
-    //   cuisine: cuisine,
-    //   itemInfo: data
-    // });
-    // container.append(renderedForm);
+    var renderedForm = Mustache.render(form, data);
+    addRest.remove();
+    container.html('');
+    container.append(renderedForm);
   });
-});
+  // $('.ui.row').on('click', '[data-action="bluebutton"]', function(){
+  //   console.log('banana');
+  //   console.log(this);
+  // });
+  $('.ui.tiny.blue.button').on('click', function(){
+    console.log('banana');
+  });
+}
 
-// show list of restaurants / main content
-$.ajax({
-  method:'GET',
-  url: '/restaurants',
-}).done(function(restaurants){
-    var restEls = [];
 
-    restaurants.forEach(function(restaurant){
-      var html = Mustache.render(template, restaurant);
-      restEls.push(html);
-    });
-    container.append(restEls);
-});
+
+
+
+
+
+
+
+
+
+var routes = {
+  '/restaurants': letsGoHome, // invokes function for homepage view
+  '/restaurants/:id': getOneRest // invokes function for restaurant view
+}; //end of routes object
+var router = Router(routes)
+router.init();
+
