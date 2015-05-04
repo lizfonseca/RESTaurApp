@@ -31,16 +31,16 @@
       <script type="text/template" data-id="template">
         <div class="ui row">
           <div class="ui ten wide column">
-            <!-- <a href="/restaurants/{{id}}"> -->
-              <div class="ui raised segment restaurant" id="{{id}}">
-              <a href="/#/restaurants/{{id}}"><h3>{{name}}</h3></a>
-                <p>
-                  <br>
-                  <span>{{cuisine}}</span> / <span>{{location}}</span>
-                </p>
-                <img class="ui centered image" src={{image_url}}>
-              </div>
-            <!-- </a> -->
+            <div class="ui raised segment restaurant" id="{{id}}">
+              <a href="/#/restaurants/{{id}}">
+                <h3>{{name}}</h3>
+              </a>
+              <p>
+                <br>
+                <span>{{cuisine}}</span> / <span>{{location}}</span>
+              </p>
+              <img class="ui centered image" src={{image_url}}>
+            </div>
           </div>
         </div>
       </script>
@@ -51,10 +51,8 @@
             <div class="ui three wide column">
               <a href="#/restaurants">
                 <div class="ui mini black icon button">
-                  <!-- <a data-action = "home" href="#/restaurants"> -->
                   <i class="angle left icon"></i>
                   Back
-                  <!-- </a> -->
                 </div>
               </a>
             </div>
@@ -62,11 +60,11 @@
         </div> 
         <div data-id="{{id}}" class="ui row">
           <div class="ui seven wide column">
-            <h2 class="ui header" contenteditable='true'>{{name}}</h2>
-            <span contenteditable='true'>{{cuisine}}</span> / <span contenteditable='true'>{{location}}</span></p>
+            <h3 class="ui header" contenteditable='true'>{{name}}</h3>
+            <span contenteditable='true' class="cuisine">{{cuisine}}</span> / <span contenteditable='true' class="location">{{location}}</span></p>
           </div>
           <div class="uiright aligned three wide column row">
-              <div class="negative ui tiny button">
+              <div class="ui tiny negative button">
                 Shutdown
               </div>
               <a data-action="bluebutton">

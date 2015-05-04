@@ -56,7 +56,7 @@ var table = $('script[data-id="table"]').text();
 
 
 
-// logic
+// LOGIC
 function oneMoreRest(){
   $.ajax({
     method: 'POST',
@@ -103,13 +103,12 @@ function getOneRest(id){
     addRest.remove();
     container.html('');
     container.append(renderedForm);
-  });
-  // $('.ui.row').on('click', '[data-action="bluebutton"]', function(){
-  //   console.log('banana');
-  //   console.log(this);
-  // });
-  $('.ui.tiny.blue.button').on('click', function(){
-    console.log('banana');
+
+    $('.ui.row').on('click', '.ui.tiny.blue.button', function(){
+      console.log($('h3.ui.header').text());
+      console.log($('span.cuisine').text());
+      console.log($('span.location').text());
+    });
   });
 }
 
