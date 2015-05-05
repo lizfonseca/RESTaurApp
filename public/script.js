@@ -89,17 +89,22 @@ function getOneRest(rest_id){
     });
     // adds menu item into restuarant
     $('.ui.row').on('click', '.ui.tiny.positive.submit.button', function(){
+      var itemImg = $('input.item_image').val();
+      var itemName = $('input.item_name').val();
+      var itemPrice = $('input.item_price').val();
+      var itemOrder = $('input.item_order').val();
+      var newItem = {
+        name: itemName,
+        price: itemPrice,
+        order_count: itemOrder,
+        image_url: itemImg,
+        restaurant_id: rest_id,
+        id: id
+      };
       $.ajax({
         method: 'POST',
-        url: '/items' 
-      }).done(function(){
-        var itemImg = $('input.item_image').val();
-        var itemName = $('input.item_name').val();
-        var itemPrice = $('input.item_price').val();
-        var itemOrder = $('input.item_order').val();
-        // var newItem {
-
-        // }
+        url: '/items',
+        data: newItem
       }).done(function(data){
         console.log(data);
       })
