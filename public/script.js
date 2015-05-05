@@ -43,24 +43,25 @@ function letsGoHome(){
   $('.ui.mini.green.button').on('click', oneMoreRest);
 } //end of letsGoHome function
 
-// view single restaurant
-function getOneRest(id){
+// manipulate single restaurant
+function getOneRest(rest_id){
   $.ajax({
     method: 'GET',
-    url: '/restaurants/' + id,
+    url: '/restaurants/' + rest_id,
   }).done(function(data){
+  // view single restaurant
     var renderedForm = Mustache.render(form, data);
     addRest.remove();
     container.html('');
     container.append(renderedForm);
     // updates restaurant current info when clicking blue button
     $('.ui.row').on('click', '.ui.tiny.blue.button', function(){
+      // variables replacing old info with new info
       var restName = $('h3.ui.header').text().trim();
       var restCuisine = $('span.cuisine').text().trim();
       var restLocation = $('span.location').text().trim();
       var restImage = $('span.image').text().trim();
-      // variables replacing old info with new info
-      var newInfo ={
+      var newRestaurant ={
         name: restName,
         cuisine: restCuisine,
         location: restLocation,
@@ -69,8 +70,8 @@ function getOneRest(id){
       // data replacement happens here
       $.ajax({
         method: 'PUT',
-        url: '/restaurants/' + id,
-        data: newInfo
+        url: '/restaurants/' + rest_id,
+        data: newRestaurant
       }).done(function(){
         console.log('Job well done!');
         console.log('Restaurant updated!');
@@ -80,14 +81,38 @@ function getOneRest(id){
     $('.ui.row').on('click', '.ui.tiny.negative.button', function(){
       $.ajax({
         method: 'DELETE',
-        url: '/restaurants/' + id,
+        url: '/restaurants/' + rest_id,
       }).done(function(){
         // hides restaurant form on restaurants view
         $(document).find('.rest_form').html('');
       });
     });
+    // adds menu item into restuarant
+    $('.ui.row').on('click', '.ui.tiny.positive.submit.button', function(){
+      $.ajax({
+        method: 'POST',
+        url: '/items' 
+      }).done(function(){
+        var itemImg = $('input.item_image').val();
+        var itemName = $('input.item_name').val();
+        var itemPrice = $('input.item_price').val();
+        var itemOrder = $('input.item_order').val();
+        // var newItem {
+
+        // }
+      }).done(function(data){
+        console.log(data);
+      })
+    })
+
+
+
+
+
+    
   });
 } // end of getOneRest function
+
 
 
 

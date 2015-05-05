@@ -8,7 +8,7 @@
       "id": 1
     },
     {
-      "name": "Staying Fresh",
+      "name": "Fresh",
       "location": "New York",
       "cuisine": "Vegetarian",
       "image_url": "http://i.imgur.com/B9rFVPm.jpg?1",
@@ -37,6 +37,9 @@
       "price": 10,
       "order_count": 0,
       "image_url": "http://kleberly.com/data_images/wallpapers/7/277047-hamburger.jpg"
+    },
+    {
+      "id": 2
     }
   ]
 }
