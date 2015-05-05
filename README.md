@@ -1,11 +1,15 @@
 #RESTaurApp
+
 #####A management application for restaurant owners
 
 ##Structure
+
 ####General
+
 The application will initially feature a list of restaurants owned by the user. When navigating a restaurant, menu items with their corresponding information will be displayed.
 
 ####Technical
+
 This illustration below shows how the database holds the application's information:
 
 + The restaurants table only holds the general information of each restaurant: a unique id key, the name, the corresponding location, the cuisine type, and an image.
@@ -14,29 +18,42 @@ This illustration below shows how the database holds the application's informati
 
 <img src="http://i.imgur.com/7hADqRv.png"/>
 
+
 ######_The relationship between both tables is the following: restaurants table is the parent of the items table._
+
 
 ##User Stories
 The application can be accessed via IP address and port:
 
+
  _IP: _
+
 
  _Port: 3000_
 
 
+ The user can view the list of owned restaurants.
+ The user can create new restaurants.
+ The user can edit new restaurant information.
+ The user can delete a selected restaurant.
+
+
  #####Restaurants page
- <img src="http://i.imgur.com/4CJCn4B.png">
+ <img src="http://i.imgur.com/BiFqBWz.png">
 
 
  #####Items page
- <img src="http://i.imgur.com/euTKp9R.png">
+ <img src="http://i.imgur.com/g5pxoUA.png">
 
 
  ##Tools & Resources
 
++ Bower
++ Director
++ JQuery
++ Semantic UI
 
  ##Download
-
 
    If you would like to try the application, go to:
 
