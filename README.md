@@ -23,10 +23,11 @@ This illustration below shows how the database holds the application's informati
 
 
 ##User Stories
+
 The application can be accessed via IP address and port:
 
 
- _IP: _
+ _IP: localhost_
 
 
  _Port: 3000_
@@ -37,23 +38,24 @@ The application can be accessed via IP address and port:
  The user can edit new restaurant information.
  The user can delete a selected restaurant.
 
-
- #####Restaurants page
- <img src="http://i.imgur.com/BiFqBWz.png">
-
-
- #####Items page
- <img src="http://i.imgur.com/g5pxoUA.png">
+#####Restaurants page
+ 
+ <img src="http://i.imgur.com/BiFqBWz.png" />
 
 
- ##Tools & Resources
+##### Items page
+ 
+ <img src="http://i.imgur.com/g5pxoUA.png" />
+
+
+##Tools & Resources
 
 + Bower
 + Director
 + JQuery
 + Semantic UI
 
- ##Download
+##Download
 
    If you would like to try the application, go to:
 
@@ -63,7 +65,11 @@ The application can be accessed via IP address and port:
 
    + Unzip files
 
-   + Open the html file
+   + Open the Terminal and locate file
+
+   + Run json-server
+ 
+   ```$ json-server db.json``` 
 
    + Open browser window and type the following:
 
